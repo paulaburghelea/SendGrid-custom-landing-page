@@ -1,0 +1,28 @@
+<?php
+$url = 'https://api.sendgrid.com/';
+		$user = 'SendGrid_username';
+		$pass= 'SendGrid_password';
+		$email=$_POST['email'];
+$params = array(
+          'api_user' => $user,
+          'api_key' => $pass,
+          'email' => $email
+           );
+if (strlen($email)<3){
+echo "This is not an email address";
+break;}
+else{
+$request = $url.'api/unsubscribes.add.json';
+$session = curl_init($request);
+
+curl_setopt ($session, CURLOPT_POST, true);
+curl_setopt ($session, CURLOPT_POSTFIELDS, $params);
+curl_setopt($session, CURLOPT_HEADER, false);
+curl_setopt($session, CURLOPT_RETURNTRANSFER, true);
+ 
+$response = curl_exec($session);
+curl_close($session);
+}
+print_r($response);
+
+?>
