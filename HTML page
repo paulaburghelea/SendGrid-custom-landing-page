@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>My Unsubscribe page</title>
+</head>
+<body>
+	<h1> My unsubscribe page </h1>
+
+	<p> Please add your email address bellow if you wish to stop receiving any emails from us </p>
+
+	<form action="addglobalunsubscribe.php" method="post">
+		Email: <input type="text" name="email">
+		<input type="submit" value="Confirm">
+	</form>
+</body>
+</html>
